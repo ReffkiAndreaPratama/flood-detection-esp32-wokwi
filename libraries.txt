@@ -1,0 +1,4 @@
+Adafruit GFX Library
+Adafruit SSD1306
+ESP32Servo
+ESP32 core: WiFi.h, WebServer.h, Wire.h

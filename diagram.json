@@ -1,0 +1,404 @@
+{
+  "version": 1,
+  "author": "FloodGuard X",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 10,
+      "left": -5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "upstream",
+      "top": -170,
+      "left": 270,
+      "attrs": {
+        "distance": "150"
+      }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "downstream",
+      "top": -20,
+      "left": 270,
+      "attrs": {
+        "distance": "150"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "rain",
+      "top": 170,
+      "left": 270,
+      "attrs": {
+        "value": "500"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "flow",
+      "top": 290,
+      "left": 270,
+      "attrs": {
+        "value": "250"
+      }
+    },
+    {
+      "type": "wokwi-ssd1306",
+      "id": "oled",
+      "top": -200,
+      "left": -240,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "gate",
+      "top": 310,
+      "left": -220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 200,
+      "left": -230,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb",
+      "top": 60,
+      "left": -245,
+      "attrs": {
+        "common": "cathode"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rr",
+      "top": 40,
+      "left": -325,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rg",
+      "top": 85,
+      "left": -325,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rb",
+      "top": 130,
+      "left": -325,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "mute",
+      "top": 390,
+      "left": 20,
+      "attrs": {
+        "color": "blue",
+        "label": "MUTE"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "mode",
+      "top": 390,
+      "left": 120,
+      "attrs": {
+        "color": "green",
+        "label": "MODE"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:5V",
+      "upstream:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "upstream:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:5",
+      "upstream:TRIG",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:34",
+      "upstream:ECHO",
+      "blue",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:5V",
+      "downstream:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "downstream:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:18",
+      "downstream:TRIG",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:35",
+      "downstream:ECHO",
+      "blue",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "rain:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.2",
+      "rain:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:32",
+      "rain:SIG",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "flow:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.2",
+      "flow:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:33",
+      "flow:SIG",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:21",
+      "oled:SDA",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:22",
+      "oled:SCL",
+      "blue",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:3V3",
+      "oled:VCC",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.2",
+      "oled:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:13",
+      "gate:PWM",
+      "orange",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:5V",
+      "gate:V+",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:GND.2",
+      "gate:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:19",
+      "buzzer:2",
+      "purple",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:GND.2",
+      "buzzer:1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:25",
+      "rr:1",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "rr:2",
+      "rgb:R",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:26",
+      "rg:1",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "rg:2",
+      "rgb:G",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "esp:27",
+      "rb:1",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "rb:2",
+      "rgb:B",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "rgb:COM",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:23",
+      "mute:1.l",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "mute:2.l",
+      "esp:GND.2",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "esp:4",
+      "mode:1.l",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "mode:2.l",
+      "esp:GND.2",
+      "black",
+      [
+        "v0"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}

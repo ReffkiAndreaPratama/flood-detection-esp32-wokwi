@@ -1,0 +1,9 @@
+PROJECT: FloodGuard X — Smart Flood Intelligence System
+BOARD: ESP32 DevKit C V4
+SIMULATOR: Wokwi
+SENSORS: 2x HC-SR04, 2x potentiometer (rain/flow proxy)
+OUTPUTS: SSD1306 OLED, RGB LED, buzzer, servo floodgate model
+FEATURES: multi-point water level, risk score, trend/ETA, dashboard, event log, AUTO/MANUAL
+DASHBOARD: HTTP port 80; localhost:8180 through Wokwi Private IoT Gateway
+LIBRARIES: Adafruit GFX, Adafruit SSD1306, ESP32Servo
+DISCLAIMER: Simulation/educational prototype; not a certified warning system.
